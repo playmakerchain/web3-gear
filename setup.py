@@ -14,7 +14,7 @@ with open(path.join(here, "README.rst"), encoding="utf-8") as f:
 setup(
     name="web3-gear",
     version="1.1.2",
-    description="An adapter between thor-restful and eth-rpc.",
+    description="An adapter between powerplay-restful and eth-rpc.",
     long_description=long_description,
     url="https://github.com/vechain/web3-gear",
     author="Han Xiao",
