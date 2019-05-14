@@ -12,15 +12,13 @@ Installation
 >>>>>>>>>>>>
 
 On OS x
--
+:::::::
 
 * Python 3.6+ support
 
 1. Install the system dependancies:
 
-	brew install openssl
-	export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
-	export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
+    brew install openssl
 
 2. Installation of Web3-Gear and it's dependent Python packages via PyPI
 
