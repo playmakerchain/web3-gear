@@ -62,7 +62,7 @@ def run_server(host, port, endpoint, keystore, passcode):
 
     powerplay.set_endpoint(endpoint)
     if keystore == "":
-        .set_accounts(solo())
+        powerplay.set_accounts(solo())
     else:
         powerplay.set_accounts(_keystore(keystore, passcode))
 
