@@ -3,7 +3,7 @@ Web3-gear
 
 Proxy `Powerplay <https://github.com/playmakerchain/powerplay>`_'s RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using Thor's RESTful API).
 
-Working with `Powerplay Builtins <https://github.com/vechain/thor-builtins>`_ will make Web3-Gear more usable.
+Working with `Powerplay Builtins <https://github.com/playmakerchain/powerplay-builtins>`_ will make Web3-Gear more usable.
 
 Quick Start
 -----------
