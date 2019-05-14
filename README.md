@@ -11,94 +11,45 @@ Quick Start
 Installation
 >>>>>>>>>>>>
 
-On OS x
-:::::::
+Installation of libraries (using root user):
 
-* Python 3.6+ support
+    add-apt-repository ppa:bitcoin/bitcoin -y
+    apt-get update
+    apt-get install -y build-essential libtool autotools-dev automake pkg-config libssl-dev libevent-dev bsdmainutils
+    apt-get install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-dev libboost-program-options-dev libboost-test-dev libboost-thread-dev
+    apt-get install -y libdb4.8-dev libdb4.8++-dev
 
-1. Install the system-dependecies:
+Cloning the repository and compiling (use any user with the sudo group):
 
-    brew install openssl
-    export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
-    export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
+    cd
+    git clone https://github.com/BaisycCoin/BaisycCoin.git
+    cd BaisycCoin
+    ./autogen.sh
+    ./configure
+    sudo make install
+    cd src
+    sudo strip baisyccoind
+    sudo strip baisyccoin-cli
+    sudo strip baisyccoin-tx
+    cd ..
 
-2. Installation of Web3-Gear and it's dependent Python packages via PyPI:
+Running the daemon:
 
-    pip3 install web3-gear
+    baisyccoind 
 
-On Ubuntu
-:::::::::
+Stopping the daemon:
 
-* Python 3.6+ support
+    baisyccoin-cli stop
 
-1. Install the system-dependecies:
+Demon status:
 
-    sudo apt-get install build-essential libssl-dev python-dev
+    baisyccoin-cli getinfo
+    baisyccoin-cli mnsync status
 
-2. Installation of Web3-Gear and it's dependent Python packages via PyPI:
+All binaries for different operating systems, you can download in the releases repository:
 
-    pip3 install web3-gear
+https://github.com/bsycproject/BaisycCoin/releases
 
-On Window
-:::::::::
-
-* Python 3.6 support
-
-1. Install Visual C++ Build Tools.
-
-2. Install `scrypt-py <https://pypi.org/project/scrypt/#files>`_ use the precompiled wheels.
-
-3. Installation of Web3-Gear and it's dependent Python packages via PyPI::
-
-    pip3 install web3-gear
-
-Run
->>>
-
-Installing through pip will make the ``web3-gear`` command available on your machine (`must run thor client first.`)::
-
-    web3-gear
-
-This will run web3-gear on ``127.0.0.1:8545``.
-
-You can change its default behavior with the following parameters:
-
---host      rpc service host, eg: ``--host 127.0.0.1``
---port      rpc service port, eg: ``--port 8545``
---endpoint  thor restful service endpoint, eg: ``--endpoint http://127.0.0.1:8669``
---keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=thor stand-alone(solo) built-in accounts
---passcode  passcode of keystore, eg: ``--passcode xxxxxxxx``
-
-Use Remix
->>>>>>>>>
-
-Change the Remix environment to Web3 provide.
-
-.. image:: http://oi64.tinypic.com/2u59gef.jpg
-
-Use Truffle
->>>>>>>>>>>
-
-* Truffle 4.0.6+ support
-
-Modify the configuration of truffle first(``truffle.js``):
-
-.. code-block:: js
-
-    module.exports = {
-        networks: {
-            development: {
-                host: "localhost",
-                port: 8545,
-                network_id: "*" // Match any network id
-            }
-        }
-    };
-
-Then you can use truffle's command line tool.
-
-There are some projects based on truffle, can use them for testing:
-
-- `Crowdsale Contracts <https://github.com/vechain/crowdsale-contracts>`_.
-- `Token Distribution <https://github.com/libotony/token-distribution>`_.
-- `Solidity Idiosyncrasies <https://github.com/miguelmota/solidity-idiosyncrasies>`_.
+P2P port: 64758, RPC port: 64759
+-
+Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
