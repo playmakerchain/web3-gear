@@ -54,7 +54,7 @@ def run_server(host, port, endpoint, keystore, passcode):
         response = requests.options(endpoint)
         response.raise_for_status()
     except requests.exceptions.ConnectionError:
-        print("Unable to connect to Thor-Restful server.")
+        print("Unable to connect to PowerPlay-Restful server.")
         return
 
     print(web3_clientVersion())
