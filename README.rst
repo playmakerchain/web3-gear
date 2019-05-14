@@ -59,13 +59,13 @@ Installing through pip will make the ``web3-gear`` command available on your mac
 
     web3-gear
 
-This will run web3-gear on ``127.0.0.1:8545``.
+This will run web3-gear on ``127.0.0.1:4657``.
 
 You can change its default behavior with the following parameters:
 
 --host      rpc service host, eg: ``--host 127.0.0.1``
---port      rpc service port, eg: ``--port 8545``
---endpoint  thor restful service endpoint, eg: ``--endpoint http://127.0.0.1:8669``
+--port      rpc service port, eg: ``--port 4657``
+--endpoint  thor restful service endpoint, eg: ``--endpoint http://127.0.0.1:4658``
 --keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=thor stand-alone(solo) built-in accounts
 --passcode  passcode of keystore, eg: ``--passcode xxxxxxxx``
 
@@ -99,6 +99,6 @@ Then you can use truffle's command line tool.
 
 There are some projects based on truffle, can use them for testing:
 
-- `Crowdsale Contracts <https://github.com/vechain/crowdsale-contracts>`_.
+- `Crowdsale Contracts <https://github.com/playmakerchain/crowdsale-contracts>`_.
 - `Token Distribution <https://github.com/libotony/token-distribution>`_.
 - `Solidity Idiosyncrasies <https://github.com/miguelmota/solidity-idiosyncrasies>`_.
