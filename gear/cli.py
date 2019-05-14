@@ -3,7 +3,7 @@ import click
 import random
 import requests
 from .utils.thread import spawn
-from .thor.client import powerplay
+from .powerplay.client import powerplay
 from .thor.account import (
     solo,
     keystore as _keystore,
