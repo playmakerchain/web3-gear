@@ -1,10 +1,6 @@
 Web3-gear
 ---------
 
-.. image:: https://badges.gitter.im/vechain/thor.svg
-    :alt: Gitter
-    :target: https://gitter.im/vechain/thor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
-
 Proxy `Thor <https://github.com/vechain/thor>`_'s RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using Thor's RESTful API).
 
 Working with `Thor Builtins <https://github.com/vechain/thor-builtins>`_ will make Web3-Gear more usable.
