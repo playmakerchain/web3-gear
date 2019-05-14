@@ -1,9 +1,13 @@
 Web3-gear
 ---------
 
-Proxy [Powerplay's](https://github.com/playmakerchain/powerplay) RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using Powerplay's RESTful API).
+.. image:: https://badges.gitter.im/vechain/thor.svg
+    :alt: Gitter
+    :target: https://gitter.im/vechain/thor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge
 
-Working with [Powerplay Builtins](https://github.com/playmakerchain/powerplay-builtins) will make Web3-Gear more usable.
+Proxy `Thor <https://github.com/vechain/thor>`_'s RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using Thor's RESTful API).
+
+Working with `Thor Builtins <https://github.com/vechain/thor-builtins>`_ will make Web3-Gear more usable.
 
 Quick Start
 -----------
@@ -12,43 +16,43 @@ Installation
 >>>>>>>>>>>>
 
 On OS x
--
+:::::::
 
 * Python 3.6+ support
 
-Install the system dependancies:
+1. Install the system-dependecies::
 
     brew install openssl
     export CFLAGS="-I$(brew --prefix openssl)/include $CFLAGS"
     export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
 
-Installation of Web3-Gear and it's dependent Python packages via PyPI:
+2. Installation of Web3-Gear and it's dependent Python packages via PyPI::
 
     pip3 install web3-gear
 
 On Ubuntu
--
+:::::::::
 
 * Python 3.6+ support
 
-Install the system-dependecies:
+1. Install the system-dependecies::
 
     sudo apt-get install build-essential libssl-dev python-dev
 
-Installation of Web3-Gear and it's dependent Python packages via PyPI:
+2. Installation of Web3-Gear and it's dependent Python packages via PyPI::
 
     pip3 install web3-gear
 
 On Window
--
+:::::::::
 
 * Python 3.6 support
 
-Install Visual C++ Build Tools.
+1. Install Visual C++ Build Tools.
 
-Install [scrypt-py](https://pypi.org/project/scrypt/#files) use the precompiled wheels.
+2. Install `scrypt-py <https://pypi.org/project/scrypt/#files>`_ use the precompiled wheels.
 
-Installation of Web3-Gear and it's dependent Python packages via PyPI::
+3. Installation of Web3-Gear and it's dependent Python packages via PyPI::
 
     pip3 install web3-gear
 
@@ -102,4 +106,3 @@ There are some projects based on truffle, can use them for testing:
 - `Crowdsale Contracts <https://github.com/vechain/crowdsale-contracts>`_.
 - `Token Distribution <https://github.com/libotony/token-distribution>`_.
 - `Solidity Idiosyncrasies <https://github.com/miguelmota/solidity-idiosyncrasies>`_.
-
