@@ -60,7 +60,7 @@ def run_server(host, port, endpoint, keystore, passcode):
     print(web3_clientVersion())
     print("Listening on %s:%s" % (host, port))
 
-    thor.set_endpoint(endpoint)
+    .set_endpoint(endpoint)
     if keystore == "":
         thor.set_accounts(solo())
     else:
