@@ -64,7 +64,7 @@ def run_server(host, port, endpoint, keystore, passcode):
     if keystore == "":
         .set_accounts(solo())
     else:
-        thor.set_accounts(_keystore(keystore, passcode))
+        .set_accounts(_keystore(keystore, passcode))
 
     server = make_server(
         host,
