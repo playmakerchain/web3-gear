@@ -4,7 +4,7 @@ import random
 import requests
 from .utils.thread import spawn
 from .powerplay.client import powerplay
-from .thor.account import (
+from ..account import (
     solo,
     keystore as _keystore,
 )
