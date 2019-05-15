@@ -9,8 +9,8 @@ from threading import Thread
 
 class ThreadWithReturn(Thread):
     '''
-    The function is executed in a multi-threaded manner, and the result of the function execution can be obtained by the get method after the thread ends (if the function has a return value)
-    以多线程方式执行函数, 并且可在线程结束后通过 get 方法获取函数执行结果 (如果函数有返回值)
+    The function is executed in a multi-threaded manner, and the result of the function execution can 
+    be obtained by the get method after the thread ends (if the function has a return value)
     '''
 
     def __init__(self, target=None, args=None, kwargs=None):
