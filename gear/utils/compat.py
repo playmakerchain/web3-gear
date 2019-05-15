@@ -1,4 +1,4 @@
-# Copyright (c) 2018 The VeChainThor developers
+# Copyright (c) 2018 The VeChain developers
 # Copyright (c) 2019 The PlayMaker developers
 
 # Distributed under the GNU Lesser General Public License v3.0 software license, see the accompanying
@@ -49,7 +49,7 @@ BLOCK_FORMATTERS = {
 }
 
 
-def thor_block_convert_to_eth_block(block):
+def _block_convert_to_eth_block(block):
     return {
         ETH_BLOCK_KWARGS_MAP.get(k, k): BLOCK_FORMATTERS.get(k, noop)(v)
         for k, v in block.items()
@@ -59,7 +59,7 @@ def thor_block_convert_to_eth_block(block):
 #
 # receipt
 #
-def thor_receipt_convert_to_eth_receipt(receipt):
+def _receipt_convert_to_eth_receipt(receipt):
     return {
         "status": encode_number(0 if receipt["reverted"] else 1),
         "transactionHash": receipt["meta"]["txID"],
@@ -70,7 +70,7 @@ def thor_receipt_convert_to_eth_receipt(receipt):
         "gasUsed": encode_number(receipt["gasUsed"]),
         "contractAddress": None if receipt["reverted"] else receipt["outputs"][0]["contractAddress"],
         "logs": None if receipt["reverted"] else [
-            thor_receipt_log_convert_to_eth_log(receipt, index, log)
+            _receipt_log_convert_to_eth_log(receipt, index, log)
             for index, log in enumerate(receipt["outputs"][0]["events"])
         ],
     }
@@ -79,7 +79,7 @@ def thor_receipt_convert_to_eth_receipt(receipt):
 #
 # log
 #
-def thor_receipt_log_convert_to_eth_log(receipt, index, log):
+def _receipt_log_convert_to_eth_log(receipt, index, log):
     return {
         "type": "mined",
         "logIndex": encode_number(index),
@@ -93,7 +93,7 @@ def thor_receipt_log_convert_to_eth_log(receipt, index, log):
     }
 
 
-def thor_log_convert_to_eth_log(address, logs):
+def _log_convert_to_eth_log(address, logs):
     if logs:
         return [
             {
@@ -114,7 +114,7 @@ def thor_log_convert_to_eth_log(address, logs):
 #
 # transaction
 #
-def thor_tx_convert_to_eth_tx(tx):
+def _tx_convert_to_eth_tx(tx):
     return {
         "hash": tx["id"],
         "nonce": tx["nonce"],
@@ -133,7 +133,7 @@ def thor_tx_convert_to_eth_tx(tx):
 #
 # storage
 #
-def thor_storage_convert_to_eth_storage(storage):
+def _storage_convert_to_eth_storage(storage):
     def _convert_hash(key): return "0x{}".format(encode_hex(sha3(to_bytes(hexstr=key))))
     return {
         _convert_hash(v["key"]): v
@@ -166,9 +166,9 @@ class PowerplayTransaction(rlp.Serializable):
         ("Signature", binary),  # b""
     ]
 
-    def __init__(self, thor, eth_tx):
-        chain_tag = int(thor.get_block(0)["hash"][-2:], 16)
-        blk_ref = int(strip_0x(thor.get_block("best")["hash"])[:8], 16)
+    def __init__(self, , eth_tx):
+        chain_tag = int(.get_block(0)["hash"][-2:], 16)
+        blk_ref = int(strip_0x(.get_block("best")["hash"])[:8], 16)
         receiver = b"" if "to" not in eth_tx else decode_hex(eth_tx["to"])
         clauses = [
             Clause(
