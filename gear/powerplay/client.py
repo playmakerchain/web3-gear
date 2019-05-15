@@ -17,7 +17,7 @@ from gear.utils.compat import (
     thor_tx_convert_to_eth_tx,
     thor_log_convert_to_eth_log,
     thor_storage_convert_to_eth_storage,
-    ThorTransaction,
+    PowerplayTransaction,
     intrinsic_gas,
 )
 from .request import (
@@ -30,7 +30,7 @@ from .request import (
 def _attribute(obj, key): return None if obj is None else obj[key]
 
 
-class Client(object, metaclass=Singleton):
+class PowerplayClient(object, metaclass=Singleton):
     def __init__(self):
         self.filter = {}
 
@@ -114,7 +114,7 @@ class Client(object, metaclass=Singleton):
         return _attribute(result, "data")
 
     def send_transaction(self, transaction):
-        tx = Transaction(self, transaction)
+        tx = PowerplayTransaction(self, transaction)
         tx.sign(self.account_manager.get_priv_by_addr(transaction["from"]))
         data = {
             "raw": "0x{}".format(encode_hex(rlp.encode(tx)))
@@ -191,4 +191,4 @@ class BlockFilter(object):
         return result
 
 
-thor = Client()
+thor = PowerplayClient()
