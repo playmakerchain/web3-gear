@@ -30,7 +30,7 @@ from .request import (
 def _attribute(obj, key): return None if obj is None else obj[key]
 
 
-class ThorClient(object, metaclass=Singleton):
+class Client(object, metaclass=Singleton):
     def __init__(self):
         self.filter = {}
 
@@ -114,7 +114,7 @@ class ThorClient(object, metaclass=Singleton):
         return _attribute(result, "data")
 
     def send_transaction(self, transaction):
-        tx = ThorTransaction(self, transaction)
+        tx = Transaction(self, transaction)
         tx.sign(self.account_manager.get_priv_by_addr(transaction["from"]))
         data = {
             "raw": "0x{}".format(encode_hex(rlp.encode(tx)))
@@ -191,4 +191,4 @@ class BlockFilter(object):
         return result
 
 
-thor = ThorClient()
+thor = Client()
