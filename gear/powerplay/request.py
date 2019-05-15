@@ -101,9 +101,9 @@ class Restful(object):
             response.raise_for_status()
             return json.loads(response.content)
         except requests.exceptions.ConnectionError:
-            print("Unable to connect to Thor-Restful server.")
+            print("Unable to connect to -Restful server.")
         except requests.RequestException as e:
-            print("Thor-Restful server Err:", e)
+            print("-Restful server Err:", e)
             print(response.content)
             raise JSONRPCDispatchException(-32000, message=response.content.decode().strip('\n'))
         return None
