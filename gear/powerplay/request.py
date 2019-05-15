@@ -101,9 +101,9 @@ class Restful(object):
             response.raise_for_status()
             return json.loads(response.content)
         except requests.exceptions.ConnectionError:
-            print("Unable to connect to -Restful server.")
+            print("Unable to connect to PowerPlay-Restful server.")
         except requests.RequestException as e:
-            print("-Restful server Err:", e)
+            print("PowerPlay-Restful server Err:", e)
             print(response.content)
             raise JSONRPCDispatchException(-32000, message=response.content.decode().strip('\n'))
         return None
