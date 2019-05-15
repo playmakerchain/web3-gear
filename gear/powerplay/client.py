@@ -1,4 +1,4 @@
-# Copyright (c) 2018 The VeChain developers
+# Copyright (c) 2018 The VeChainpowerplay developers
 # Copyright (c) 2019 The PlayMaker developers
 
 # Distributed under the GNU Lesser General Public License v3.0 software license, see the accompanying
@@ -12,11 +12,11 @@ from gear.utils.types import (
     encode_hex
 )
 from gear.utils.compat import (
-    _block_convert_to_eth_block,
-    _receipt_convert_to_eth_receipt,
-    _tx_convert_to_eth_tx,
-    _log_convert_to_eth_log,
-    _storage_convert_to_eth_storage,
+    powerplay_block_convert_to_eth_block,
+    powerplay_receipt_convert_to_eth_receipt,
+    powerplay_tx_convert_to_eth_tx,
+    powerplay_log_convert_to_eth_log,
+    powerplay_storage_convert_to_eth_storage,
     PowerplayTransaction,
     intrinsic_gas,
 )
@@ -73,7 +73,7 @@ class PowerplayClient(object, metaclass=Singleton):
         result = self.debug("storage-range").make_request(post, data=data)
         if result is None:
             return None
-        result["storage"] = _storage_convert_to_eth_storage(
+        result["storage"] = powerplay_storage_convert_to_eth_storage(
             result["storage"])
         return result
 
@@ -124,7 +124,7 @@ class PowerplayClient(object, metaclass=Singleton):
 
     def get_transaction_by_hash(self, tx_hash):
         tx = self.transactions(tx_hash).make_request(get)
-        return None if tx is None else _tx_convert_to_eth_tx(tx)
+        return None if tx is None else powerplay_tx_convert_to_eth_tx(tx)
 
     def get_balance(self, address, block_identifier):
         params = {
@@ -135,11 +135,11 @@ class PowerplayClient(object, metaclass=Singleton):
 
     def get_transaction_receipt(self, tx_hash):
         receipt = self.transactions(tx_hash).receipt.make_request(get)
-        return None if receipt is None else _receipt_convert_to_eth_receipt(receipt)
+        return None if receipt is None else powerplay_receipt_convert_to_eth_receipt(receipt)
 
     def get_block(self, block_identifier):
         blk = self.blocks(block_identifier).make_request(get)
-        return None if blk is None else _block_convert_to_eth_block(blk)
+        return None if blk is None else powerplay_block_convert_to_eth_block(blk)
 
     def get_code(self, address, block_identifier):
         params = {
@@ -167,7 +167,7 @@ class PowerplayClient(object, metaclass=Singleton):
             "address": address
         }
         logs = self.events.make_request(post, data=query, params=params)
-        result = _log_convert_to_eth_log(address, logs)
+        result = powerplay_log_convert_to_eth_log(address, logs)
         return result
 
 
@@ -191,4 +191,4 @@ class BlockFilter(object):
         return result
 
 
- = PowerplayClient()
+powerplay = PowerplayClient()
