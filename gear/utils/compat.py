@@ -152,7 +152,7 @@ class Clause(rlp.Serializable):
         super(Clause, self).__init__(To, Value, Data)
 
 
-class ThorTransaction(rlp.Serializable):
+class Transaction(rlp.Serializable):
     fields = [
         ("ChainTag", big_endian_int),
         ("BlockRef", big_endian_int),
@@ -177,7 +177,7 @@ class ThorTransaction(rlp.Serializable):
                 decode_hex(eth_tx.get("data", "")),
             )
         ]
-        super(ThorTransaction, self).__init__(chain_tag, blk_ref, (2 ** 32) - 1, clauses, 0, eth_tx.get("gas", 3000000), b"", 0, [], b"")
+        super(Transaction, self).__init__(chain_tag, blk_ref, (2 ** 32) - 1, clauses, 0, eth_tx.get("gas", 3000000), b"", 0, [], b"")
 
     def sign(self, key):
         '''Sign this transaction with a private key.
@@ -185,7 +185,7 @@ class ThorTransaction(rlp.Serializable):
         A potentially already existing signature would be overridden.
         '''
         h = blake2b(digest_size=32)
-        h.update(rlp.encode(self, ThorTransaction.exclude(["Signature"])))
+        h.update(rlp.encode(self, Transaction.exclude(["Signature"])))
         rawhash = h.digest()
 
         if key in (0, "", b"\x00" * 32, "0" * 64):
