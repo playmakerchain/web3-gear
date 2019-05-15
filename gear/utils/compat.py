@@ -1,4 +1,4 @@
-# Copyright (c) 2018 The VeChain developers
+# Copyright (c) 2018 The VeChainThor developers
 # Copyright (c) 2019 The PlayMaker developers
 
 # Distributed under the GNU Lesser General Public License v3.0 software license, see the accompanying
