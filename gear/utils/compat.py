@@ -1,3 +1,9 @@
+# Copyright (c) 2018 The VeChainThor developers
+# Copyright (c) 2019 The PlayMaker developers
+
+# Distributed under the GNU Lesser General Public License v3.0 software license, see the accompanying
+# file LICENSE or <https://www.gnu.org/licenses/lgpl-3.0.html>
+
 import rlp
 from hashlib import blake2b
 from eth_keys import keys
