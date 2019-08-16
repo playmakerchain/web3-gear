@@ -28,7 +28,7 @@ fi
 
 # check if THOR_PORT is not set
 if [[ -z "${THOR_PORT}" ]]; then
-  echo "Env variable needed: eg. THOR_PORT=8669"
+  echo "Env variable needed: eg. THOR_PORT=2843"
   exit 1
 fi
 
