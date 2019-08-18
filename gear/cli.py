@@ -39,7 +39,7 @@ class SilentWSGIRequestHandler(WSGIRequestHandler):
 )
 @click.option(
     "--endpoint",
-    default="http://127.0.0.1:4658",
+    default="http://127.0.0.1:2885",
 )
 @click.option(
     "--keystore",
