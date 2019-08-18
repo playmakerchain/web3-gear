@@ -59,12 +59,12 @@ Installing through pip will make the ``web3-gear`` command available on your mac
 
     web3-gear
 
-This will run web3-gear on ``127.0.0.1:4657``.
+This will run web3-gear on ``127.0.0.1:2884``.
 
 You can change its default behavior with the following parameters:
 
 --host      rpc service host, eg: ``--host 127.0.0.1``
---port      rpc service port, eg: ``--port 4657``
+--port      rpc service port, eg: ``--port 2884``
 --endpoint  thor restful service endpoint, eg: ``--endpoint http://127.0.0.1:4658``
 --keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=thor stand-alone(solo) built-in accounts
 --passcode  passcode of keystore, eg: ``--passcode xxxxxxxx``

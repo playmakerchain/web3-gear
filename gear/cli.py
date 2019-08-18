@@ -34,7 +34,7 @@ class SilentWSGIRequestHandler(WSGIRequestHandler):
 )
 @click.option(
     "--port",
-    default=4657,
+    default=2884,
     type=int,
 )
 @click.option(
