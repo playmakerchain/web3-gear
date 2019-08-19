@@ -1,9 +1,11 @@
 Web3-gear
 ---------
 
-Proxy `Powerplay <https://github.com/playmakerchain/powerplay>`_'s RESTful API to Eth JSON-RPC, to support Remix, Truffle and more (You should give priority to using PowerPlay's RESTful API).
+Proxy `Powerplay <https://github.com/playmakerchain/powerplay>`_'s RESTful API to Eth JSON-RPC, to support Remix, 
+Truffle and more (You should give priority to using PowerPlay's RESTful API).
 
-Working with `Powerplay Builtins <https://github.com/playmakerchain/powerplay-builtins>`_ will make Web3-Gear more usable.
+Working with `Powerplay Builtins <https://github.com/playmakerchain/powerplay-builtins>`_ will make Web3-Gear more 
+usable.
 
 Quick Start
 -----------
@@ -55,7 +57,7 @@ On Window
 Run
 >>>
 
-Installing through pip will make the ``web3-gear`` command available on your machine (`must run thor client first.`)::
+Installing through pip will make the ``web3-gear`` command available on your machine (`must run powerplay client first.`)::
 
     web3-gear
 
@@ -65,8 +67,8 @@ You can change its default behavior with the following parameters:
 
 --host      rpc service host, eg: ``--host 127.0.0.1``
 --port      rpc service port, eg: ``--port 2884``
---endpoint  thor restful service endpoint, eg: ``--endpoint http://127.0.0.1:2885``
---keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=thor stand-alone(solo) built-in accounts
+--endpoint  powerplay restful service endpoint, eg: ``--endpoint http://127.0.0.1:2885``
+--keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=powerplay stand-alone(solo) built-in accounts
 --passcode  passcode of keystore, eg: ``--passcode xxxxxxxx``
 
 Use Remix
