@@ -89,7 +89,7 @@ Modify the configuration of truffle first(``truffle.js``):
         networks: {
             development: {
                 host: "localhost",
-                port: 8545,
+                port: 2845,
                 network_id: "*" // Match any network id
             }
         }

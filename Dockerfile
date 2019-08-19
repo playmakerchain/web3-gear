@@ -43,5 +43,5 @@ RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 # Ports that should be exposed
-EXPOSE 8545/tcp
-EXPOSE 8545/udp
+EXPOSE 2845/tcp
+EXPOSE 2845/udp

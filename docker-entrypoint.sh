@@ -15,7 +15,7 @@ fi
 
 # Check if LISTEN_PORT is not set
 if [[ -z "${LISTEN_PORT}" ]]; then
-  LISTEN_PORT="8545"
+  LISTEN_PORT="2845"
 else
   LISTEN_PORT="${LISTEN_PORT}"
 fi
