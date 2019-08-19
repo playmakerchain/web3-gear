@@ -5,7 +5,7 @@ import sys
 import traceback
 from jsonrpc import JSONRPCResponseManager, Dispatcher
 from werkzeug.wrappers import Request, Response
-from .thor.client import thor
+from .powerplay.client import powerplay
 from .utils.compat import noop
 from .utils.types import (
     encode_number,
