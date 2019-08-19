@@ -16,7 +16,7 @@ setup(
     version="1.1.2",
     description="An adapter between powerplay-restful and eth-rpc.",
     long_description=long_description,
-    url="https://github.com/powerplay/web3-gear",
+    url="https://github.com/playmakerchain/web3-gear",
     author="Han Xiao",
     author_email="smallcpp@foxmail.com",
     license="MIT",
