@@ -96,12 +96,12 @@ def rpc_modules():
 #
 @dispatcher.add_method
 def debug_traceTransaction(tx_hash, params):
-    return thor.trace_transaction(tx_hash)
+    return powerplay.trace_transaction(tx_hash)
 
 
 @dispatcher.add_method
 def debug_storageRangeAt(blk_hash, tx_index, contract_addr, key_start, max_result):
-    return thor.storage_range_at(blk_hash, tx_index, contract_addr, key_start, max_result)
+    return powerplay.storage_range_at(blk_hash, tx_index, contract_addr, key_start, max_result)
 
 
 #
@@ -152,43 +152,43 @@ def eth_getStorageAt(address, position, block_identifier="best"):
     if position.startswith("0x"):
         position = position[2:]
     position = "0x{}".format(position.zfill(64))
-    return thor.get_storage_at(
+    return powerplay.get_storage_at(
         address, position, normalize_block_identifier(block_identifier))
 
 
 @dispatcher.add_method
 def eth_getTransactionCount(address, block_identifier="best"):
     '''
-    ethereum 用来处理 nonce, Thor 不需要
+    ethereum 用来处理 nonce, powerplay 不需要
     '''
     return encode_number(0)
 
 
 @dispatcher.add_method
 def eth_accounts():
-    return thor.get_accounts()
+    return powerplay.get_accounts()
 
 
 @dispatcher.add_method
 def eth_getCode(address, block_identifier="best"):
-    return thor.get_code(address, normalize_block_identifier(block_identifier))
+    return powerplay.get_code(address, normalize_block_identifier(block_identifier))
 
 
 @dispatcher.add_method
 def eth_blockNumber():
-    return encode_number(thor.get_block_number())
+    return encode_number(powerplay.get_block_number())
 
 
 @dispatcher.add_method
 def eth_estimateGas(transaction):
     formatted_transaction = input_transaction_formatter(transaction)
-    return encode_number(thor.estimate_gas(formatted_transaction))
+    return encode_number(powerplay.estimate_gas(formatted_transaction))
 
 
 @dispatcher.add_method
 def eth_call(transaction, block_identifier="best"):
     formatted_transaction = input_transaction_formatter(transaction)
-    return thor.call(formatted_transaction, normalize_block_identifier(block_identifier))
+    return powerplay.call(formatted_transaction, normalize_block_identifier(block_identifier))
 
 
 @dispatcher.add_method
@@ -197,18 +197,18 @@ def eth_sendTransaction(transaction):
     发送未签名的交易
     '''
     formatted_transaction = input_transaction_formatter(transaction)
-    return thor.send_transaction(formatted_transaction)
+    return powerplay.send_transaction(formatted_transaction)
 
 
 @dispatcher.add_method
 def eth_getBalance(address, block_identifier="best"):
-    return thor.get_balance(address, normalize_block_identifier(block_identifier))
+    return powerplay.get_balance(address, normalize_block_identifier(block_identifier))
 
 
 @dispatcher.add_method
 def eth_getTransactionByHash(tx_hash):
     try:
-        return thor.get_transaction_by_hash(tx_hash)
+        return powerplay.get_transaction_by_hash(tx_hash)
     except Exception:
         traceback.print_exc()
         return None
@@ -217,7 +217,7 @@ def eth_getTransactionByHash(tx_hash):
 @dispatcher.add_method
 def eth_getTransactionReceipt(tx_hash):
     try:
-        return thor.get_transaction_receipt(tx_hash)
+        return powerplay.get_transaction_receipt(tx_hash)
     except Exception:
         traceback.print_exc()
         return None
@@ -234,7 +234,7 @@ def eth_getBlockByNumber(block_number, full_tx=False):
 
 
 def get_block(block_identifier, full_tx):
-    blk = thor.get_block(normalize_block_identifier(block_identifier))
+    blk = powerplay.get_block(normalize_block_identifier(block_identifier))
     if blk and full_tx:
         blk["transactions"] = [eth_getTransactionByHash(
             tx) for tx in blk["transactions"]]
@@ -243,22 +243,22 @@ def get_block(block_identifier, full_tx):
 
 @dispatcher.add_method
 def eth_newBlockFilter():
-    return thor.new_block_filter()
+    return powerplay.new_block_filter()
 
 
 @dispatcher.add_method
 def eth_uninstallFilter(filter_id):
-    return thor.uninstall_filter(filter_id)
+    return powerplay.uninstall_filter(filter_id)
 
 
 @dispatcher.add_method
 def eth_getFilterChanges(filter_id):
-    return thor.get_filter_changes(filter_id)
+    return powerplay.get_filter_changes(filter_id)
 
 
 @dispatcher.add_method
 def eth_getLogs(filter_obj):
-    return thor.get_logs(filter_obj.get("address", None), input_log_filter_formatter(filter_obj))
+    return powerplay.get_logs(filter_obj.get("address", None), input_log_filter_formatter(filter_obj))
 
 
 @Request.application
