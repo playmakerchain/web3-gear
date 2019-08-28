@@ -1,0 +1,23 @@
+{
+  "name": "web3-gear",
+  "version": "1.0.0",
+  "description": "proxy POwerplay's restful API to Eth JSON-RPC to support remix, truffle and more",
+  "main": "index.js",
+  "dependencies": {
+    "truffle": "^5.0.33"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/playmakerchain/web3-gear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/playmakerchain/web3-gear/issues"
+  },
+  "homepage": "https://github.com/playmakerchain/web3-gear#readme"
+}
