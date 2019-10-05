@@ -71,12 +71,6 @@ You can change its default behavior with the following parameters:
 --keystore  keystore file path, eg: ``--keystore /Users/(username)/keystore)``, default=powerplay stand-alone(solo) built-in accounts
 --passcode  passcode of keystore, eg: ``--passcode xxxxxxxx``
 
-Use Remix
->>>>>>>>>
-
-Change the Remix environment to Web3 provide.
-
-.. image:: http://oi64.tinypic.com/2u59gef.jpg
 
 Use Truffle
 >>>>>>>>>>>
